@@ -1,0 +1,226 @@
+/* --- Konfigurasi Dasar & Variabel --- */
+:root {
+    --primary-blue: #003EFF;
+    --primary-blue-hover: #0028a8;
+    --text-light: #ffffff;
+    --bg-dark-transparent: rgba(0, 0, 0, 0.7);
+    --bg-light-transparent: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Shippori Antique', sans-serif;
+}
+
+/* --- Gaya Utama (Default untuk Desktop) --- */
+body {
+    background-color: #000;
+    background-image: url("bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+#konten {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    width: 90%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    background-color: var(--bg-dark-transparent);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+#fotoloveu,
+.image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+#animasi {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--text-light);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+    animation: degdeg 0.5s infinite alternate;
+}
+
+#acaa-img {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+    border-radius: 10px;
+    border: 2px solid var(--text-light);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+    object-fit: contain;
+}
+
+.catatan {
+    width: 100%;
+    overflow: hidden;
+    margin: 10px 0;
+    color: var(--text-light);
+    font-size: 16px;
+}
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: var(--bg-light-transparent);
+    border-radius: 20px;
+    padding: 10px 0;
+}
+
+.marquee-content {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scrollText 15s linear infinite;
+    visibility: hidden;
+    font-size: inherit;
+    /* Mewarisi ukuran font dari .catatan */
+}
+
+#tombWA {
+    visibility: hidden;
+    opacity: 0;
+    margin-top: 10px;
+    transition: all 0.5s ease;
+}
+
+.button {
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: none;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 62, 255, 0.4);
+}
+
+.button:hover {
+    background-color: var(--primary-blue-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 62, 255, 0.6);
+}
+
+/* --- Animasi --- */
+@keyframes degdeg {
+    from {
+        transform: rotate(-5deg);
+    }
+
+    to {
+        transform: rotate(5deg);
+    }
+}
+
+@keyframes scrollText {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.fa-heart {
+    position: fixed;
+    color: red;
+    pointer-events: none;
+    z-index: -1;
+    animation: animateHeart linear;
+    font-size: 20px;
+    opacity: 0.7;
+}
+
+@keyframes animateHeart {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* --- Penyesuaian Responsif --- */
+
+/* 1. Untuk MOBILE (Layar 600px ke bawah) */
+@media (max-width: 600px) {
+    #konten {
+        width: 95%;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    #animasi {
+        width: 100px;
+        height: 100px;
+    }
+
+    .catatan {
+        font-size: 14px;
+    }
+
+    .marquee-content {
+        animation-duration: 12s;
+    }
+
+    .button {
+        padding: 10px 25px;
+        font-size: 16px;
+    }
+
+    #acaa-img {
+        max-height: 250px;
+    }
+}
+
+/* 2. Opsional: Untuk DESKTOP SANGAT BESAR (Layar 1400px ke atas) */
+@media (min-width: 1400px) {
+    #konten {
+        max-width: 600px;
+    }
+
+    .catatan {
+        font-size: 18px;
+    }
+
+    .button {
+        font-size: 20px;
+        padding: 15px 35px;
+    }
+}
