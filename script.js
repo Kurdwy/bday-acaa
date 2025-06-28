@@ -227,6 +227,6 @@ setInterval(() => {
 }, 100);
 
 // Start the experience
-window.addEventListener('load', () => {
-    mulai();
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(mulai, 1000);
 });
