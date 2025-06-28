@@ -227,7 +227,6 @@ setInterval(() => {
 }, 100);
 
 // Start the experience
-document.addEventListener('DOMContentLoaded', () => {
-    // Tambahkan efek ketik untuk membuat lebih menarik
-    setTimeout(mulai, 1000);
+window.addEventListener('load', () => {
+    mulai();
 });
