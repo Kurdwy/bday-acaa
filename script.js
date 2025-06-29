@@ -227,6 +227,7 @@ setInterval(() => {
 }, 100);
 
 // Start the experience
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(mulai, 1000);
+window.addEventListener('load', function() {
+    // Beri jeda singkat untuk memastikan semua elemen siap dirender
+    setTimeout(mulai, 500); 
 });
