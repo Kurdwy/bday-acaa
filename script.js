@@ -229,5 +229,5 @@ setInterval(() => {
 // Start the experience
 window.addEventListener('load', function() {
     // Beri jeda singkat untuk memastikan semua elemen siap dirender
-    setTimeout(mulai, 500); 
+    setTimeout(mulai, 100); 
 });
